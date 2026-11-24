@@ -1,0 +1,14 @@
+# Constriva
+
+> Constriva is a set of apps for building and looking after a home: a client app for owners, a Team app for engineers and contractors, and a web portal for suppliers. It is made by Constriva, a general contractor in Abu Dhabi, UAE (https://constrivaglobal.com).
+
+## Pages
+- [Home Construction App: Plan, Price and Follow Your Build](https://app.constrivaglobal.com/home-construction-app/): A home construction app for owners. Draw or share your plans, compare supplier quotes, follow approved site progress and keep every document in one place.
+- [Construction Site App for Engineers and Contractors](https://app.constrivaglobal.com/construction-site-app/): Constriva Team is a construction site app for check-in, voice daily reports, snags, material lists and signed approvals. Made for engineers and site teams.
+- [Building Materials Quotes: Walk the Store, Compare Prices](https://app.constrivaglobal.com/building-materials-quotes/): Choose building materials in a walkable 3D-style store, make one list and ask for one quotation. Marble, tiles, doors, taps, paint and more in the Constriva app.
+- [AI Floor Plan and Build Cost App](https://app.constrivaglobal.com/ai-floor-plan-and-cost/): Answer a few questions and get a floor plan you can edit by dragging rooms, with a preliminary cost range and an AI engineer that answers your what-ifs.
+- [Home Maintenance App: Report It, Understand It, Fix It](https://app.constrivaglobal.com/home-maintenance-app/): A home maintenance app that explains the problem, shows the risk and what to do now, and brings an engineer. For leaks, AC, electrical, cracks and more.
+- [Supplier Portal for Construction Materials](https://app.constrivaglobal.com/for-suppliers/): Constriva’s supplier portal brings real material requests, a fast quote builder, orders and delivery notes into one screen for construction suppliers.
+
+## Languages
+English, Arabic, Hindi, Russian (in the apps)
