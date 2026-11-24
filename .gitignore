@@ -1,0 +1,19 @@
+node_modules
+dist
+.DS_Store
+.claude
+# working files, not for a public repo
+reference
+source-art
+# written by scripts/pages.mjs
+/404.html
+/home-construction-app
+/construction-site-app
+/building-materials-quotes
+/ai-floor-plan-and-cost
+/home-maintenance-app
+/for-suppliers
+public/sitemap.xml
+public/robots.txt
+public/llms.txt
+public/site.webmanifest

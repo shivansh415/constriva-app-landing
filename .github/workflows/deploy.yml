@@ -1,0 +1,53 @@
+name: Build and release
+
+# Every push to main: build, check, publish the built site to the `release` branch.
+# The server picks `release` up by itself within a minute, so no server key lives in GitHub.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check
+
+      - name: Publish to the release branch
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "$GITHUB_SHA" > dist/version.txt
+          cd dist
+          git init -q -b release
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -q -m "Release $GITHUB_SHA"
+          git push -q --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" release
+
+      - name: Wait until it is live
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: |
+          for i in $(seq 1 30); do
+            live=$(curl -fsS --max-time 8 "https://app.constrivaglobal.com/version.txt?$i" || true)
+            if [ "$live" = "$GITHUB_SHA" ]; then echo "Live: $live"; exit 0; fi
+            sleep 10
+          done
+          echo "::warning::Published, but the server did not show this version within 5 minutes."
